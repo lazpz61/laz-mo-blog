@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 import logo from "../../static/assets/images/mo-laz-blog.png"
 
 
