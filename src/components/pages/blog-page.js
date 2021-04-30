@@ -1,3 +1,4 @@
+import { json, response } from 'express'
 import React, { Component } from 'react'
 
 export default class BlogPage extends Component {
@@ -6,6 +7,15 @@ export default class BlogPage extends Component {
 
        this.state = {}
    }
+
+
+   componentDidMount(){
+       fetch("https://app-in-a-day-round2.herokuapp.com/blog/get")
+       .then(response => response.json())
+       .then(response)
+   }
+
+
 
    render() {
        return (
