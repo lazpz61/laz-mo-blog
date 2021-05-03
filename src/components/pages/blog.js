@@ -9,6 +9,31 @@ export default class Blog extends Component {
        }
    }
 
+   handleTitleChange(event) {
+    this.setState ({ title: event.target.value })
+  }
+  handleContentChange(event) {
+    this.setState ({ content : event.target.value})
+  }
+  handleUserIdChange(event) {
+    this.setState ({ user_id : event.target.value})
+  }
+  handleSubmit() {
+    fetch('https://app-in-a-day-round2.herokuapp.com/blog/add', {
+           method : "POST",
+           headers : { "content-type" : "application/json" },
+           body: JSON.stringify ({
+               title : this.state.title,
+               content : this.state.content,
+               user_id : this.state.user_id
+           })
+          }) 
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.log("Error: POST REQUEST -", error))
+          console.log("testing post")
+  }
+
    render() {
        return (
         <div className='blog-posts'>
